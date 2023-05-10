@@ -22,3 +22,5 @@
 3. Each to-do item have a `delete button` to remove the to-sdo item from the list
 
    ![](./screenshot/deleteitem.png)
+
+4. The title should be unique
