@@ -27,7 +27,9 @@ export default function ToDoForm({todoInput, setTodoInput, todoDate, setTodoDate
   function onFormSubmit(event){
     event.preventDefault();      
     setTodos([...todos, {id: uuidv4(), values: values}]);
-    setTodoInput('');
+    event.target.todoText.value= "";
+    event.target.todoDate.value= "";
+    event.target.todoStatus.value ="status";    
   }
   return (
     <div>ToDoForm
@@ -38,7 +40,8 @@ export default function ToDoForm({todoInput, setTodoInput, todoDate, setTodoDate
               placeholder="Add a todo"
               name="todoText"
               className="todo-input"
-              onChange = {handleInputChange}              
+              onChange = {handleInputChange}  
+                       
           />
         </label> <br/><br/>
         <label name="date"> Date:
@@ -51,7 +54,8 @@ export default function ToDoForm({todoInput, setTodoInput, todoDate, setTodoDate
           />
         </label> <br/><br/>
         <label name="progress">Progress:
-          <select name="todoStatus" id="progress" defaultValue="Choose the status" onChange = {handleInputChange}>
+          <select name="todoStatus" id="progress" onChange = {handleInputChange}>
+            <option value="status">Choose the Status</option>
             <option value="in-progress">in-progress</option>
             <option value="done">done</option>
             <option value="not-started">not-started</option>

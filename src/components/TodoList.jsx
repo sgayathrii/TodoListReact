@@ -30,13 +30,13 @@ export default function TodoList({todos, setTodos}) {
     <div>
       <ul>
         {todos.map((todo) => (
-          <div className="todo-list">
-            <li className="list-status" key={todo.id} style={{backgroundColor: `${statusColor(todo.values.todoStatus)}`}}>                  
+          <div className="todo-list" key={todo.id}>
+            <li className="list-status" style={{backgroundColor: `${statusColor(todo.values.todoStatus)}`}}>                  
           </li>
-          <li className="list-text" key={todo.id}>
+          <li className="list-text">
             {todo.values.todoText}                
           </li>
-          <li className="list-date" key={todo.id}>
+          <li className="list-date">
             {todo.values.todoDate}    
           </li>
           
