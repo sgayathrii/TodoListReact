@@ -2,23 +2,10 @@ import React from 'react'
 import {useState, useEffect} from "react";
 import {v4 as uuidv4} from "uuid";
 
-export default function ToDoForm({todoInput, setTodoInput, todoDate, setTodoDate, todoProgress, setTodoProgress, todos, setTodos}) {
+export default function ToDoForm({todos, setTodos}) {
  
   const [values, setValues] = useState([]);
   
-  /* function handleInputChange(event){
-    setTodoInput(event.target.value);
-  }
-
-  function handleDateChange(event){
-    setTodoDate(event.target.value);
-  }
-
-  function handleStatusChange(event){
-    setTodoProgress(event.target.value);
-  } */
-
-
   function handleInputChange(event){
     const {name, value} = event.target;
     setValues({...values, [name]: value,});
@@ -29,7 +16,7 @@ export default function ToDoForm({todoInput, setTodoInput, todoDate, setTodoDate
     setTodos([...todos, {id: uuidv4(), values: values}]);
     event.target.todoText.value= "";
     event.target.todoDate.value= "";
-    event.target.todoStatus.value ="status";    
+    event.target.todoStatus.value ="status"; 
   }
   return (
     <div>ToDoForm
@@ -40,8 +27,7 @@ export default function ToDoForm({todoInput, setTodoInput, todoDate, setTodoDate
               placeholder="Add a todo"
               name="todoText"
               className="todo-input"
-              onChange = {handleInputChange}  
-                       
+              onChange = {handleInputChange}                
           />
         </label> <br/><br/>
         <label name="date"> Date:

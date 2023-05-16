@@ -4,6 +4,30 @@ import {useState, useEffect} from "react";
 import TodoForm from "./components/Form/TodoForm";
 import TodoList from "./components/TodoList";
 
+// attach each parts/ components
+
+// how many states ???
+
+// form => onChange
+
+// get each todoItem ( what is the data shape?)
+// {
+ // title:title
+ // date: date
+ // progress: status
+//}
+
+// display todoItem
+
+// display todoList ( what is the date shape?) []
+
+// todoList:[todoItem, todoItem, toDoItem]
+
+// toDoList: [{}, {} {}] array method: map
+
+// delete todoItem
+
+// Styling: color
 
 function App() {
 
@@ -15,12 +39,6 @@ function App() {
   return (
     <div className="App">
       <TodoForm 
-        todoInput ={todoInput}
-        setTodoInput = {setTodoInput}
-        todoDate ={todoDate}
-        setTodoDate = {setTodoDate}
-        todoProgress ={todoProgress}
-        setTodoProgress = {setTodoProgress}
         todos ={todos}
         setTodos = {setTodos}      
       />
@@ -33,3 +51,4 @@ function App() {
 }
 
 export default App;
+
