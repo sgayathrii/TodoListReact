@@ -1,5 +1,5 @@
 import './App.css';
-import {useState, useEffect} from "react";
+import {useState} from "react";
 
 import TodoForm from "./components/Form/TodoForm";
 import TodoList from "./components/TodoList";
@@ -31,9 +31,6 @@ import TodoList from "./components/TodoList";
 
 function App() {
 
-  const [todoInput, setTodoInput] = useState("");
-  const [todoDate, setTodoDate] = useState("");
-  const [todoProgress, setTodoProgress] = useState("");
   const [todos, setTodos] = useState([]);
 
   return (

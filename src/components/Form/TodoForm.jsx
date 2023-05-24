@@ -1,10 +1,10 @@
 import React from 'react'
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import {v4 as uuidv4} from "uuid";
 
 export default function ToDoForm({todos, setTodos}) {
  
-  const [values, setValues] = useState([]);
+  const [values, setValues] = useState({todoText:"", todoDate:"", todoStatus:"" });
   
   function handleInputChange(event){
     const {name, value} = event.target;
@@ -13,11 +13,17 @@ export default function ToDoForm({todos, setTodos}) {
 
   function onFormSubmit(event){
     event.preventDefault();      
-    setTodos([...todos, {id: uuidv4(), values: values}]);
-    event.target.todoText.value= "";
-    event.target.todoDate.value= "";
-    event.target.todoStatus.value ="status"; 
+    
+    if(values.todoDate !=="" || values.todoText !=="" || values.todoStatus !== ""){      
+      setTodos([...todos, {id: uuidv4(), values: values}]);
+      setValues({
+        todoText:"",
+        todoDate: "",
+        todoStatus:""
+      });       
+    } 
   }
+  
   return (
     <div>ToDoForm
       <form className="todo-form" onSubmit={onFormSubmit}>
@@ -27,7 +33,8 @@ export default function ToDoForm({todos, setTodos}) {
               placeholder="Add a todo"
               name="todoText"
               className="todo-input"
-              onChange = {handleInputChange}                
+              onChange = {handleInputChange}   
+              value={values.todoText}             
           />
         </label> <br/><br/>
         <label name="date"> Date:
@@ -37,10 +44,11 @@ export default function ToDoForm({todos, setTodos}) {
               name= "todoDate"
               className="todo-date"
               onChange = {handleInputChange}
+              value={values.todoDate}
           />
         </label> <br/><br/>
         <label name="progress">Progress:
-          <select name="todoStatus" id="progress" onChange = {handleInputChange}>
+          <select name="todoStatus" id="progress" onChange = {handleInputChange} value={values.todoStatus}>
             <option value="status">Choose the Status</option>
             <option value="in-progress">in-progress</option>
             <option value="done">done</option>

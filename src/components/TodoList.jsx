@@ -1,10 +1,6 @@
 import React from 'react'
-import TodoForm from "./Form/TodoForm";
-
-import {useState, useEffect} from "react";
 
 export default function TodoList({todos, setTodos}) {
-
  
   const statusColor = (description) => {
     switch(description) {
@@ -19,13 +15,10 @@ export default function TodoList({todos, setTodos}) {
   }
 
   function handleTodoDelete(itemId){
-
     const updatedTodo = [...todos].filter((todo) => {return todo.id !== itemId})
     setTodos(updatedTodo);
   }
 
-
-  
   return (
     <div>
       <ul>
